@@ -14,7 +14,8 @@ class LoginPage extends Page
      */
     public function url()
     {
-        return 'http://leaftaps.com/opentaps/control/login';
+        return 'https://cookie.siliconpreview.co.uk/dashboard';
+       // return 'https://parklane.foundationpreview.co.uk/dashboard';
     }
 
     /**
@@ -23,41 +24,44 @@ class LoginPage extends Page
      * @param  Browser  $browser
      * @return void
      */
-    public function assert(Browser $browser)
-    {
-       // $browser->assertPathIs($this->url());
-    }
+   // public function assert(Browser $browser)
+   // {
+        //$browser->assertPathIs($this->url());
+   // }
 
-    /**
-     * Get the element shortcuts for the page.
+    
+    /* * Get the element shortcuts for the page.
      *
      * @return array
-     */
+     
     public function elements()
     {
         return [
             '@element' => '#selector',
         ];
     }
-
-    public function userEnterValidLoginCredentials(Browser $browser)
+    */
+    /**
+     * Assert that the valid user see the homepage.
+     *
+     * @param  Browser  $browser
+     * @return void
+     */
+    public function userLoginWithValidCredentials(Browser $browser)
     {
-        $browser->assertSee('Leaftaps Login')
-                ->type('USERNAME','demosalesmanager')
-                ->type('PASSWORD','crmsfa')
-                ->click('#login > p:nth-child(3) > input')
-                ->assertSee('Demo Sales Manager')
-                ->clickLink('CRM/SFA')
-                ->clickLink('Leads')
-                ->assertSee('My Leads');
-
-
-
+    
+               // ->assertPathIs($this->url())
+        $browser->assertSee('Cookie')
+                ->type('user_login','aarthi@nedholdings.com')
+                ->type('password','#7scBtPjBuEE')
+        //$browser->type('user_login','silicon')
+         //       ->type('password','G7H2fbS3$9f@')
+                ->press('Login')
+                ->pause(2000)
+                ->clickLink('Accept','button')
+                ->pause(2000);
 
     }
-   
-
-
 
 
 }
